@@ -1,21 +1,11 @@
-package cr.ac.ucr.paraiso.ie.algoritmos;
+package cr.ac.ucr.paraiso.ie.algoritmos.Utility;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
-public class GeneraFragmentos {
-    public void generarFragmentos(String texto, int cantidadFragmentos, int longitudPromedio) {
-        int textoLength = texto.length();
-
-        for (int i = 0; i < cantidadFragmentos; i++) {
-            int inicio = (int) (Math.random() * (textoLength - longitudPromedio));
-            int fin = inicio + longitudPromedio;
-            String fragmento = texto.substring(inicio, fin);
-            escribirEnArchivo(fragmento);
-        }
-    }
+public class GestionaArchivo {
 
     public String leerContenidoArchivo(String nombreArchivo) {
         StringBuilder contenido = new StringBuilder();
