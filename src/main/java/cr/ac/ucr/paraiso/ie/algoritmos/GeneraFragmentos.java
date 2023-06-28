@@ -1,28 +1,29 @@
 package cr.ac.ucr.paraiso.ie.algoritmos;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class GeneraFragmentos {
-    public static void generarFragmentos(int cantidad, int longitudPromedio, String nombreArchivo) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(nombreArchivo))) {
-            Random random = new Random();
-            String caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-={}[]|\\:;\"'<>,.?/ ";
-            for (int i = 0; i < cantidad; i++) {
-                int longitud = Math.max(1, (int) (random.nextGaussian() * longitudPromedio / 2 + longitudPromedio));
-                StringBuilder fragmento = new StringBuilder();
-                for (int j = 0; j < longitud; j++) {
-                    int index = random.nextInt(caracteres.length());
-                    fragmento.append(caracteres.charAt(index));
-                }
-                writer.println(fragmento.toString());
-            }
+    public void generarFragmentos(String texto, int cantidadFragmentos, int longitudPromedio) {
+        int textoLength = texto.length();
 
-            System.out.println("Se generaron los fragmentos en el archivo: " + nombreArchivo);
+        for (int i = 0; i < cantidadFragmentos; i++) {
+            int inicio = (int) (Math.random() * (textoLength - longitudPromedio));
+            int fin = inicio + longitudPromedio;
+            String fragmento = texto.substring(inicio, fin);
+            escribirEnArchivo(fragmento);
+        }
+    }
+    public void escribirEnArchivo(String fragmento) {
+        String nombreArchivo = "fragmentos.txt";
+        try {
+            FileWriter writer = new FileWriter(nombreArchivo, true); // true para que agregue al archivo existente
+            writer.write(fragmento + "\n");
+            writer.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Error al escribir en el archivo: " + e.getMessage());
         }
     }
 }
