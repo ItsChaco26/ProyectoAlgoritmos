@@ -7,27 +7,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static cr.ac.ucr.paraiso.ie.algoritmos.Utility.GestionaArchivo.escribirEnArchivo;
+
 public class GeneraFragmentos {
 
-    public static void generarFragmentos(String texto, int cantidadFragmentos, int longitudFragmento) {
-        GestionaArchivo gA = new GestionaArchivo();
+    public void generarFragmentos(String texto, int cantidadFragmentos, int longitudFragmento) {
         int longitudTexto = texto.length();
-        int traslape = longitudFragmento / 2; // Traslape de la mitad de la longitud del fragmento
-        int indiceInicio = 0;
-        int indiceFin = Math.min(longitudFragmento, longitudTexto);
+        int traslape = longitudFragmento / 2; // Valor de traslape (50% de la longitud del fragmento)
 
         for (int i = 0; i < cantidadFragmentos; i++) {
-            if (indiceInicio >= longitudTexto) {
-                break; // Salir si se ha alcanzado el final del texto
-            }
-
-            String fragmento = texto.substring(indiceInicio, indiceFin);
-            gA.escribirEnArchivo(fragmento);
-
-            // Actualizar índices para el siguiente fragmento
-            indiceInicio += longitudFragmento - traslape;
-            indiceFin = Math.min(indiceInicio + longitudFragmento, longitudTexto);
+            int inicio = i * (longitudFragmento - traslape);
+            int fin = Math.min(inicio + longitudFragmento, longitudTexto);
+            String fragmento = texto.substring(inicio, fin);
+            escribirEnArchivo(fragmento);
         }
-        System.out.println("Fragmentos generados y guardados en el archivo.");
     }
 }
