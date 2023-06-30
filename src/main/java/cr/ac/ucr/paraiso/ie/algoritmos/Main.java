@@ -11,12 +11,12 @@ public class Main {
         GestionaArchivo gA = new GestionaArchivo();
         EmsamblajeFragmentos eF = new EmsamblajeFragmentos();
 
-       String textoOriginal = gA.leerContenidoArchivo("archivo.txt");
-        int cantidadFragmentos = 200;
+        String textoOriginal = gA.leerContenidoArchivo("archivo.txt");
+        int cantidadFragmentos = 50;
         int longitudPromedio = 10;
-     // gF.generarFragmentos(textoOriginal, cantidadFragmentos, longitudPromedio);;
+        gF.generarFragmentos(textoOriginal, cantidadFragmentos, longitudPromedio);;
 
-       System.out.println(eF.reconstruirTexto(gA.leerArchivoDANI("fragmentos.txt")));
+        System.out.println(eF.reconstruirTexto(gA.leerArchivoDANI("fragmentos.txt")));
     }
 
 }

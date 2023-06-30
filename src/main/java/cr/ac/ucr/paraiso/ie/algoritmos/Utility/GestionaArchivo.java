@@ -19,7 +19,7 @@ public class GestionaArchivo {
         return contenido.toString();
     }
 
-    public void escribirEnArchivo(String fragmento) {
+    public static void escribirEnArchivo(String fragmento) {
         String nombreArchivo = "fragmentos.txt";
         try {
             File archivo = new File(nombreArchivo);
