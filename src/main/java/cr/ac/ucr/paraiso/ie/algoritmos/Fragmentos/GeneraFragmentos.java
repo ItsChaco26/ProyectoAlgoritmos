@@ -28,7 +28,6 @@ public class GeneraFragmentos {
             indiceInicio += longitudFragmento - traslape;
             indiceFin = Math.min(indiceInicio + longitudFragmento, longitudTexto);
         }
-
         System.out.println("Fragmentos generados y guardados en el archivo.");
     }
 }
