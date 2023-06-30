@@ -9,21 +9,26 @@ import java.util.Random;
 
 public class GeneraFragmentos {
 
-    GestionaArchivo gA = new GestionaArchivo();
-
-    public void generarFragmentos(String texto, int cantidadFragmentos, int longitudFragmento) {
+    public static void generarFragmentos(String texto, int cantidadFragmentos, int longitudFragmento) {
+        GestionaArchivo gA = new GestionaArchivo();
         int longitudTexto = texto.length();
+        int traslape = longitudFragmento / 2; // Traslape de la mitad de la longitud del fragmento
+        int indiceInicio = 0;
+        int indiceFin = Math.min(longitudFragmento, longitudTexto);
 
         for (int i = 0; i < cantidadFragmentos; i++) {
-            int traslape = (int) Math.round(1 + Math.random() * (longitudFragmento / 2));
-            int inicio = i * (longitudFragmento - traslape);
-            int fin = Math.min(inicio + longitudFragmento, longitudTexto);
-            //Verificar límites
-            if (inicio < 0 || inicio >= longitudTexto || fin < 0 || fin > longitudTexto) {
-                break;// Salir del bucle si los índices están fuera de los límites
+            if (indiceInicio >= longitudTexto) {
+                break; // Salir si se ha alcanzado el final del texto
             }
-            String fragmento = texto.substring(inicio, fin);
+
+            String fragmento = texto.substring(indiceInicio, indiceFin);
             gA.escribirEnArchivo(fragmento);
+
+            // Actualizar índices para el siguiente fragmento
+            indiceInicio += longitudFragmento - traslape;
+            indiceFin = Math.min(indiceInicio + longitudFragmento, longitudTexto);
         }
+
+        System.out.println("Fragmentos generados y guardados en el archivo.");
     }
 }

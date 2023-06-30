@@ -1,9 +1,8 @@
 package cr.ac.ucr.paraiso.ie.algoritmos.Utility;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GestionaArchivo {
 
@@ -23,11 +22,42 @@ public class GestionaArchivo {
     public void escribirEnArchivo(String fragmento) {
         String nombreArchivo = "fragmentos.txt";
         try {
-            FileWriter writer = new FileWriter(nombreArchivo, true); // true para que agregue al archivo existente
-            writer.write(fragmento + "\n");
-            writer.close();
+            File archivo = new File(nombreArchivo);
+
+
+            if (!archivo.exists()) {
+                archivo.createNewFile();
+            }
+
+            FileWriter writer = new FileWriter(archivo, true);
+            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+            bufferedWriter.write(fragmento + "\n");
+
+            // Cerrar el archivo
+            bufferedWriter.close();
         } catch (IOException e) {
             throw new RuntimeException("Error al escribir en el archivo: " + e.getMessage());
         }
     }
+
+
+    //PRUEBAS DANI
+
+
+    public List<String> leerArchivoDANI(String nombreArchivo) {
+        List<String> lineas = new ArrayList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(nombreArchivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                lineas.add(linea);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return lineas;
+    }
+
+
 }
