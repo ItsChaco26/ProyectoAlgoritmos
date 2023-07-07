@@ -12,7 +12,7 @@ public class Main {
         EmsamblajeFragmentos eF = new EmsamblajeFragmentos();
 
         String textoOriginal = gA.leerContenidoArchivo("archivo.txt");
-        int cantidadFragmentos = 55;
+        int cantidadFragmentos = 50;
         int longitudPromedio = 10;
         gF.generarFragmentos(textoOriginal, cantidadFragmentos, longitudPromedio);;
 
