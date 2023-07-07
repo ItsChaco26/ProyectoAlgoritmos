@@ -4,12 +4,12 @@ import java.util.List;
 
 public class EmsamblajeFragmentos {
 
-// PRUEBAS
+
     public  String reconstruirTexto(List<String> fragmentos) {
         StringBuilder textoReconstruido = new StringBuilder();
 
         if (fragmentos != null && !fragmentos.isEmpty()) {
-            textoReconstruido.append(fragmentos.get(0)); // Agregar el primer fragmento completo
+            textoReconstruido.append(fragmentos.get(0));
 
             for (int i = 1; i < fragmentos.size(); i++) {
                 String fragmentoActual = fragmentos.get(i);

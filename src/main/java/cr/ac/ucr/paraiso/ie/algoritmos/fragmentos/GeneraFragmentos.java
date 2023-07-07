@@ -16,6 +16,10 @@ public class GeneraFragmentos {
             int inicio = i * (longitudFragmento - traslape);
             int fin = inicio + longitudFragmento;
 
+            if (inicio >= longitudTexto) {
+                break;
+            }
+
             if (fin > longitudTexto) {
                 fin = longitudTexto;
                 inicio = fin - longitudFragmento;
