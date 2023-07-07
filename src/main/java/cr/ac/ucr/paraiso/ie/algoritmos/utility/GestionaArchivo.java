@@ -1,4 +1,4 @@
-package cr.ac.ucr.paraiso.ie.algoritmos.Utility;
+package cr.ac.ucr.paraiso.ie.algoritmos.utility;
 
 import java.io.*;
 import java.util.ArrayList;

@@ -1,9 +1,9 @@
 package cr.ac.ucr.paraiso.ie.algoritmos;
 
 
-import cr.ac.ucr.paraiso.ie.algoritmos.Fragmentos.EmsamblajeFragmentos;
-import cr.ac.ucr.paraiso.ie.algoritmos.Fragmentos.GeneraFragmentos;
-import cr.ac.ucr.paraiso.ie.algoritmos.Utility.GestionaArchivo;
+import cr.ac.ucr.paraiso.ie.algoritmos.fragmentos.EmsamblajeFragmentos;
+import cr.ac.ucr.paraiso.ie.algoritmos.fragmentos.GeneraFragmentos;
+import cr.ac.ucr.paraiso.ie.algoritmos.utility.GestionaArchivo;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,7 +12,7 @@ public class Main {
         EmsamblajeFragmentos eF = new EmsamblajeFragmentos();
 
         String textoOriginal = gA.leerContenidoArchivo("archivo.txt");
-        int cantidadFragmentos = 50;
+        int cantidadFragmentos = 55;
         int longitudPromedio = 10;
         gF.generarFragmentos(textoOriginal, cantidadFragmentos, longitudPromedio);;
 

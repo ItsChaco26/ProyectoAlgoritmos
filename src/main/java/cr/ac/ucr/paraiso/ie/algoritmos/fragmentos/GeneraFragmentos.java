@@ -1,13 +1,6 @@
-package cr.ac.ucr.paraiso.ie.algoritmos.Fragmentos;
+package cr.ac.ucr.paraiso.ie.algoritmos.fragmentos;
 
-import cr.ac.ucr.paraiso.ie.algoritmos.Utility.GestionaArchivo;
-
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-import static cr.ac.ucr.paraiso.ie.algoritmos.Utility.GestionaArchivo.escribirEnArchivo;
+import static cr.ac.ucr.paraiso.ie.algoritmos.utility.GestionaArchivo.escribirEnArchivo;
 
 public class GeneraFragmentos {
 

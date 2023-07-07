@@ -1,7 +1,5 @@
-package cr.ac.ucr.paraiso.ie.algoritmos.Fragmentos;
+package cr.ac.ucr.paraiso.ie.algoritmos.fragmentos;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class EmsamblajeFragmentos {
