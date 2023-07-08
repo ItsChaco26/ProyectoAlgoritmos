@@ -1,4 +1,4 @@
-package cr.ac.ucr.paraiso.ie.algoritmos.Utility;
+package cr.ac.ucr.paraiso.ie.algoritmos.utility;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -6,7 +6,16 @@ import java.util.List;
 
 public class GestionaArchivo {
 
-    public String leerContenidoArchivo(String nombreArchivo) {
+    public String leerContenidoArchivo(String nombreArchivo) throws java.io.IOException {
+
+
+            File archivo = new File(nombreArchivo);
+
+
+            if (!archivo.exists()) {
+                archivo.createNewFile();
+            }
+
         StringBuilder contenido = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivo))) {
             String linea;
@@ -18,6 +27,7 @@ public class GestionaArchivo {
         }
         return contenido.toString();
     }
+
 
     public static void escribirEnArchivo(String fragmento) {
         String nombreArchivo = "fragmentos.txt";
@@ -45,19 +55,23 @@ public class GestionaArchivo {
 
 
     public List<String> leerArchivoDANI(String nombreArchivo) {
-        List<String> lineas = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(nombreArchivo))) {
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                lineas.add(linea);
+
+
+            List<String> lineas = new ArrayList<>();
+
+            try (BufferedReader br = new BufferedReader(new FileReader(nombreArchivo))) {
+                String linea;
+                while ((linea = br.readLine()) != null) {
+                    lineas.add(linea);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+
+            return lineas;
+
+
         }
 
-        return lineas;
     }
-
-
-}

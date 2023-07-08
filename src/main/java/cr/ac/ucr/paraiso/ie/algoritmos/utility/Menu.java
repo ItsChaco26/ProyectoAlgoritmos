@@ -1,6 +1,6 @@
-package cr.ac.ucr.paraiso.ie.algoritmos.Utility;
+package cr.ac.ucr.paraiso.ie.algoritmos.utility;
 
-import cr.ac.ucr.paraiso.ie.algoritmos.Fragmentos.GeneraFragmentos;
+import cr.ac.ucr.paraiso.ie.algoritmos.fragmentos.GeneraFragmentos;
 
 import java.util.Scanner;
 
