@@ -14,8 +14,8 @@ public class Main {
         String textoOriginal = gA.leerContenidoArchivo("archivo.txt");
         int cantidadFragmentos = 50;
         int longitudPromedio = 10;
+        System.out.println(textoOriginal);
         gF.generarFragmentos(textoOriginal, cantidadFragmentos, longitudPromedio);;
-
         System.out.println(eF.reconstruirTexto(gA.leerArchivoDANI("fragmentos.txt")));
     }
 
