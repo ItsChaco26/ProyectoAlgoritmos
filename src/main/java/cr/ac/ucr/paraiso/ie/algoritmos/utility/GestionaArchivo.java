@@ -6,15 +6,7 @@ import java.util.List;
 
 public class GestionaArchivo {
 
-    public String leerContenidoArchivo(String nombreArchivo) throws java.io.IOException {
-
-
-            File archivo = new File(nombreArchivo);
-
-
-            if (!archivo.exists()) {
-                archivo.createNewFile();
-            }
+    public String leerContenidoArchivo(String nombreArchivo) {
 
         StringBuilder contenido = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivo))) {
@@ -56,22 +48,19 @@ public class GestionaArchivo {
 
     public List<String> leerArchivoDANI(String nombreArchivo) {
 
+        List<String> lineas = new ArrayList<>();
 
-
-            List<String> lineas = new ArrayList<>();
-
-            try (BufferedReader br = new BufferedReader(new FileReader(nombreArchivo))) {
-                String linea;
-                while ((linea = br.readLine()) != null) {
-                    lineas.add(linea);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+        try (BufferedReader br = new BufferedReader(new FileReader(nombreArchivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                lineas.add(linea);
             }
-
-            return lineas;
-
-
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
+        return lineas;
     }
+
+
+}

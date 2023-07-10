@@ -4,27 +4,57 @@ import static cr.ac.ucr.paraiso.ie.algoritmos.utility.GestionaArchivo.escribirEn
 
 public class GeneraFragmentos {
 
-    public void generarFragmentos(String texto, int cantidadFragmentos, int longitudFragmento) {
+    public void generarFragmentos(String texto, int cantidadFragmentos, int longitudPromedioFragmento) {
         int longitudTexto = texto.length();
+        int contador = 0;
+        int posicionActual = 0;
+
         Random random = new Random();
 
-        for (int i = 0; i < cantidadFragmentos; i++) {
-            int traslape = random.nextInt(longitudFragmento / 2) + 1;
-            int inicio = i * (longitudFragmento - traslape);
-            int fin = inicio + longitudFragmento;
+        while (contador < cantidadFragmentos && posicionActual < longitudTexto) {
+            int longitudFragmento = calcularLongitudFragmento(longitudPromedioFragmento, random);
+            int traslape = Math.max(1, calcularTraslape(longitudFragmento, random));
 
-            if (inicio >= longitudTexto) {
-                break;
-            }
+            int inicio = posicionActual;
+            int fin = inicio + longitudFragmento;
 
             if (fin > longitudTexto) {
                 fin = longitudTexto;
-                inicio = fin - longitudFragmento;
+            } else {
+                while (fin < longitudTexto && !Character.isWhitespace(texto.charAt(fin))) {
+                    fin++;
+                }
+0
             }
 
             String fragmento = texto.substring(inicio, fin);
             escribirEnArchivo(fragmento);
+
+
+            contador++;
+            posicionActual = fin - traslape;
+        }
+
+        if (contador == cantidadFragmentos) {
+            System.out.println("Se han generado todos los fragmentos requeridos.");
+        } else {
+            System.out.println("El texto se ha terminado antes de generar todos los fragmentos.");
         }
     }
 
+    private int calcularLongitudFragmento(int longitudPromedio, Random random) {
+        double desviacion = 0.2;
+        double factor = random.nextGaussian() * desviacion + 1.0;
+        int longitudFragmento = (int) (longitudPromedio * factor);
+        return Math.max(1, longitudFragmento);
+    }
+
+    private int calcularTraslape(int longitudFragmento, Random random) {
+        int maxTraslape = longitudFragmento - 1;
+        return random.nextInt(maxTraslape) + 1;
+    }
+
 }
+
+
+
