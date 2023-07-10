@@ -1,5 +1,6 @@
 package cr.ac.ucr.paraiso.ie.algoritmos.fragmentos;
 
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -24,6 +25,25 @@ public class EmsamblajeFragmentos {
         return textoReconstruido.toString();
     }
 
+import java.util.List;
+
+public class EmsamblajeFragmentos {
+// PRUEBAS
+public String reconstruirTexto(List<String> fragmentos) {
+    StringBuilder textoReconstruido = new StringBuilder();
+
+    if (fragmentos != null && !fragmentos.isEmpty()) {
+        textoReconstruido.append(fragmentos.get(0)); //Agregar el primer fragmento completo
+
+        for (int i = 1; i < fragmentos.size(); i++) {
+            String fragmentoActual = fragmentos.get(i);
+            String superposicion = encontrarSuperposicion(textoReconstruido.toString(), fragmentoActual);
+            textoReconstruido.append(fragmentoActual.substring(superposicion.length()));
+        }
+    }
+
+    return textoReconstruido.toString();
+
     private String encontrarSuperposicion(String str1, String str2) {
         int longitudMaxima = 0;
         String superposicion = "";
@@ -43,6 +63,7 @@ public class EmsamblajeFragmentos {
 
         return superposicion;
     }
+
 
 
     private int obtenerPosicionInicial(String fragmento) {
