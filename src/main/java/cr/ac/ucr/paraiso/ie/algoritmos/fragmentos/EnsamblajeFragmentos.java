@@ -5,44 +5,24 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import java.util.List;
+
 public class EnsamblajeFragmentos {
 
     public String reconstruirTexto(List<String> fragmentos) {
         StringBuilder textoReconstruido = new StringBuilder();
 
         if (fragmentos != null && !fragmentos.isEmpty()) {
-            // Ordenar fragmentos en base a su posición inicial
-            Collections.sort(fragmentos, Comparator.comparingInt(this::obtenerPosicionInicial));
-
-            textoReconstruido.append(fragmentos.get(0));
+            textoReconstruido.append(fragmentos.get(0)); //Agregar el primer fragmento completo
 
             for (int i = 1; i < fragmentos.size(); i++) {
-                String fragmentoActual = fragmentos.get(i);
-                String superposicion = encontrarSuperposicion(textoReconstruido.toString(), fragmentoActual);
+               String fragmentoActual = fragmentos.get(i);
+               String superposicion = encontrarSuperposicion(textoReconstruido.toString(), fragmentoActual);
                 textoReconstruido.append(fragmentoActual.substring(superposicion.length()));
-            }
+           }
         }
-        return textoReconstruido.toString();
-    }
-
-import java.util.List;
-
-public class EmsamblajeFragmentos {
-// PRUEBAS
-public String reconstruirTexto(List<String> fragmentos) {
-    StringBuilder textoReconstruido = new StringBuilder();
-
-    if (fragmentos != null && !fragmentos.isEmpty()) {
-        textoReconstruido.append(fragmentos.get(0)); //Agregar el primer fragmento completo
-
-        for (int i = 1; i < fragmentos.size(); i++) {
-            String fragmentoActual = fragmentos.get(i);
-            String superposicion = encontrarSuperposicion(textoReconstruido.toString(), fragmentoActual);
-            textoReconstruido.append(fragmentoActual.substring(superposicion.length()));
-        }
-    }
-
     return textoReconstruido.toString();
+    }
 
     private String encontrarSuperposicion(String str1, String str2) {
         int longitudMaxima = 0;
@@ -62,7 +42,6 @@ public String reconstruirTexto(List<String> fragmentos) {
         }
         return superposicion;
     }
-
 
 
     private int obtenerPosicionInicial(String fragmento) {

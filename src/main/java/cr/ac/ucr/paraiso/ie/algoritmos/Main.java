@@ -22,10 +22,4 @@ public class Main {
         gF.generarFragmentos(textoOriginal, cantidadFragmentos, longitudPromedio);;
         System.out.println(eF.reconstruirTexto(gA.leerArchivoDANI("fragmentos.txt")));
     }
-
-       gF.generarFragmentos(textoOriginal, cantidadFragmentos, longitudPromedio);;
-
-    //   System.out.println(eF.reconstruirTexto(gA.leerArchivoDANI("fragmentos.txt")));
-
-
-    }}
+}
