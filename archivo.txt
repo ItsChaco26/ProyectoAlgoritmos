@@ -1,1 +1,0 @@
-Cuando el usuario lo solicite, su programa deberá listar los fragmentos cargados donde debe ser posible para el usuario ordenarlos y filtrarlos de múltiples formas: orden alfabético, largo de hilera, ordenar fragmentos mayores o menores a un valor dado, buscar palabras claves, etc.
