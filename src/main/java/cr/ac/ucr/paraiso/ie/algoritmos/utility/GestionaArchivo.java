@@ -45,22 +45,20 @@ public class GestionaArchivo {
 
     //PRUEBAS DANI
 
-
     public List<String> leerArchivoDANI(String nombreArchivo) {
 
-        List<String> lineas = new ArrayList<>();
+        List<String> Fragmentos = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(nombreArchivo))) {
             String linea;
             while ((linea = br.readLine()) != null) {
-                lineas.add(linea);
+                Fragmentos.add(linea);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return lineas;
+        return Fragmentos;
     }
-
 
 }
