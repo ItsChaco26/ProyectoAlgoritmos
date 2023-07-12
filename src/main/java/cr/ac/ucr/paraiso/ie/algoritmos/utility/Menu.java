@@ -20,7 +20,7 @@ public class Menu {
         Scanner sn = new Scanner(System.in);
         int opcion = 0;
 
-        while (opcion != 5) {
+        while (opcion != 8) {
             StringBuilder sb = new StringBuilder("Menu Principal"); //StringBuilder donde se almacena el contenido del Menú Principal
             sb.append("\nSeleccione una opción válida: \n")
                     .append("1): ").append("Generar fragmentos\n")
