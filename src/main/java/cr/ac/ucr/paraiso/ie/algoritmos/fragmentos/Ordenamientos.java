@@ -58,6 +58,27 @@ public class Ordenamientos {
         }
     }
 
+    public String valoresMenoresOMayores(String filePath, int valorAComparar) {
+        StringBuilder valoresMayores = new StringBuilder();
+        StringBuilder valoresMenores = new StringBuilder();
+        List<String> fragmentos = gA.leerArchivoDANI(filePath);
+
+        if (fragmentos.isEmpty()) {
+            return "No hay fragmentos disponibles.";
+        } else {
+            for (String linea : fragmentos) {
+                if (linea.length() > valorAComparar) {
+                    valoresMayores.append(linea + "\n");
+                } else {
+                    valoresMenores.append(linea + "\n");
+                }
+            }
+            return "Líneas mayores al valor " + valorAComparar + ":\n" +
+                    valoresMayores.toString() + "\n" +
+                    "Líneas menores o iguales al valor " + valorAComparar + ":\n" +
+                    valoresMenores.toString();
+        }
+    }
 
 }
 
