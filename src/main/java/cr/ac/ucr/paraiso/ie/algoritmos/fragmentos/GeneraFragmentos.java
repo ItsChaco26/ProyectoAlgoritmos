@@ -24,8 +24,7 @@ public class GeneraFragmentos {
                 while (fin < longitudTexto && !Character.isWhitespace(texto.charAt(fin))) {
                     fin++;
                 }
-0
-            }
+}
 
             String fragmento = texto.substring(inicio, fin);
             escribirEnArchivo(fragmento);
