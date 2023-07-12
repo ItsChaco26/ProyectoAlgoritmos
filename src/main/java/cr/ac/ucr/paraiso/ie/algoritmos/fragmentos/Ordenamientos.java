@@ -12,7 +12,7 @@ public class Ordenamientos {
 
 
     public String ordenarPorLongitud() {
-        List<String> fragmentos = gA.leerArchivoDANI("fragmentos.txt");
+        List<String> fragmentos = gA.leerArchivo("fragmentos.txt");
         if(fragmentos.isEmpty()){
             return "No hay fragmentos disponibles.";
         }
@@ -30,7 +30,7 @@ public class Ordenamientos {
 
 
     public String ordenarAlfabeticamente() {
-        List<String> fragmentos = gA.leerArchivoDANI("fragmentos.txt");
+        List<String> fragmentos = gA.leerArchivo("fragmentos.txt");
         if (fragmentos.isEmpty()) {
             return "No hay fragmentos disponibles.";
         } else {
@@ -46,7 +46,7 @@ public class Ordenamientos {
     }
 
     public String buscarPalabrasClave(String keyword) throws IOException {
-        List<String> fragmentos = gA.leerArchivoDANI("fragmentos.txt");
+        List<String> fragmentos = gA.leerArchivo("fragmentos.txt");
         if (fragmentos.isEmpty()) {
 
             return "No hay fragmentos disponibles.";
@@ -66,7 +66,7 @@ public class Ordenamientos {
     public String valoresMenoresOMayores(int valorAComparar) {
         StringBuilder valoresMayores = new StringBuilder();
         StringBuilder valoresMenores = new StringBuilder();
-        List<String> fragmentos = gA.leerArchivoDANI("fragmentos.txt");
+        List<String> fragmentos = gA.leerArchivo("fragmentos.txt");
 
         if (fragmentos.isEmpty()) {
             return "No hay fragmentos disponibles.";
