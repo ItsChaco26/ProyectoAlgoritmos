@@ -43,8 +43,6 @@ public class GestionaArchivo {
     }
 
 
-    //PRUEBAS DANI
-
     public List<String> leerArchivoDANI(String nombreArchivo) {
 
         List<String> Fragmentos = new ArrayList<>();

@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.Scanner;
 
 
-
-
 public class Menu {
     public void menuPrincipal(){
 
@@ -30,6 +28,7 @@ public class Menu {
                     .append("5): ").append("Buscar palabras claves en los fragmentos\n")
                     .append("6): ").append("Reconstruir fragmentos\n")
                     .append("7): ").append("Comparar el contenido del texto original y el texto reconstruido\n")
+
                     .append("8): ").append("Salir");
             System.out.println(sb);
             try {
