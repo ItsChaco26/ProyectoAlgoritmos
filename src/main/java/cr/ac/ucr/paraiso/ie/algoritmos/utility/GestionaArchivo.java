@@ -42,8 +42,14 @@ public class GestionaArchivo {
         }
     }
 
+    public void eliminarContenidoArchivo() throws IOException {
+        FileWriter writer = new FileWriter("fragmentos.txt", false);
+        writer.write("");
+        writer.close();
+    }
 
-    public List<String> leerArchivoDANI(String nombreArchivo) {
+
+    public List<String> leerArchivo(String nombreArchivo) {
 
         List<String> Fragmentos = new ArrayList<>();
 

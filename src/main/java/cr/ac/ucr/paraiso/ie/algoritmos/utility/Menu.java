@@ -35,44 +35,45 @@ public class Menu {
                 opcion = sn.nextInt(); //Se asigna un dato tipo int a la variable opción para proceder a eveluarla en el switch y ejecutar un método o acciones especificas
                 switch (opcion) {
                     case 1:
+                        System.out.println("Generar Fragmentos:\n");
+                        gA.eliminarContenidoArchivo();
                         System.out.println("Digite el número de fragmentos a generar:");
-
                         int cantidadFragmentos = sn.nextInt();
-
                         System.out.println("Digite la longitud promedio de los fragmentos:");
-
                         int longitudPromedio = sn.nextInt();
-
                         String textoOriginal = gA.leerContenidoArchivo("archivo.txt");
-
                         gF.generarFragmentos(textoOriginal, cantidadFragmentos, longitudPromedio);
-
                         System.out.println("Fragmentos generados y guardados en el archivo.");
-
                         break;
                     case 2:
-
+                        System.out.println("Ordenamiento por orde alfabético:\n");
                         System.out.println(ordenamientos.ordenarAlfabeticamente());
                         break;
                     case 3:
+                        System.out.println("Ordenamiento por longitud:\n");
                         System.out.println(ordenamientos.ordenarPorLongitud());
                         break;
                     case 4:
                         System.out.println("Digite el valor con el que desea filtrar el archivo");
                         int valor = sn.nextInt();
+                        System.out.println("Ordenamiento por valor:\n");
                         System.out.println(ordenamientos.valoresMenoresOMayores(valor));
                         break;
                     case 5:
                         System.out.println("Digite el texto con el que desea filtrar el archivo");
                         String texto = sn.next();
+                        System.out.println("Ordenamiento por palabra clave:\n");
                         System.out.println(ordenamientos.buscarPalabrasClave(texto));
                         break;
                     case 6:
-                        System.out.println(eF.reconstruirTexto(gA.leerArchivoDANI("fragmentos.txt")));
+                        System.out.println("Reconstrucción del texto:\n");
+                        System.out.println(eF.reconstruirTexto(gA.leerArchivo("fragmentos.txt")));
                         break;
                     case 7:
-                        List<String> archivoOriginal = gA.leerArchivoDANI("fragmentos.txt");
-                        System.out.println("Archivo Original: \n"+ archivoOriginal.toString()+ "\n Archivo Fragmentos Reconstruido: \n"  + eF.reconstruirTexto(gA.leerArchivoDANI("fragmentos.txt")));
+                        System.out.println("Comparación de los textos:\n");
+                        String archivoOriginal = gA.leerContenidoArchivo("archivo.txt");
+                        System.out.println("Archivo Original: \n"+ archivoOriginal.toString()+ "\nArchivo Fragmentos Reconstruido: \n"  + eF.reconstruirTexto(gA.leerArchivo("fragmentos.txt")));
+                        break;
                     case 8:
                         System.exit(0); //Se termina la ejecución del programa.
                         break;
