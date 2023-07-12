@@ -1,47 +1,31 @@
 package cr.ac.ucr.paraiso.ie.algoritmos.fragmentos;
 
-
-import cr.ac.ucr.paraiso.ie.algoritmos.grafos.Grafo;
-
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import java.util.List;
+
 public class EnsamblajeFragmentos {
+
     public String reconstruirTexto(List<String> fragmentos) {
-//        StringBuilder textoReconstruido = new StringBuilder();
-        Grafo grafo = new Grafo();
+        StringBuilder textoReconstruido = new StringBuilder();
 
         if (fragmentos != null && !fragmentos.isEmpty()) {
-            // Ordenar fragmentos en base a su posición inicial
+            textoReconstruido.append(fragmentos.get(0)); //Agregar el primer fragmento completo
 
-            Collections.sort(fragmentos, Comparator.comparingInt(this::obtenerPosicionInicial));
-            grafo.agregarCabeza(fragmentos.get(0));
-
-            for (int i = 0; i < fragmentos.size(); i++) {
-//              System.out.println(fragmentos.get(i));
-                String fragmentoActual = fragmentos.get(i);
-                for(int j = i; j < fragmentos.size(); j++) {
-                    String fragmento = fragmentos.get(j);
-                    if (!fragmento.equals(fragmentoActual)) {
-                        String superposicion = encontrarSuperposicion(fragmentoActual, fragmento);
-                        if (!superposicion.equals("")) {
-                            grafo.agregarNodo(fragmentoActual, superposicion.length(), fragmento);
-                            break;
-                        }
-                    }
-                }
-            }
+            for (int i = 1; i < fragmentos.size(); i++) {
+               String fragmentoActual = fragmentos.get(i);
+               String superposicion = encontrarSuperposicion(textoReconstruido.toString(), fragmentoActual);
+                textoReconstruido.append(fragmentoActual.substring(superposicion.length()));
+           }
         }
-
-      //  System.out.println(grafo.reconstruirTexto());
-        return grafo.reconstruirTexto();
-
-
+    return textoReconstruido.toString();
     }
 
     private String encontrarSuperposicion(String str1, String str2) {
-//        int longitudMaxima = 0;
-//        String superposicion = "";
+        int longitudMaxima = 0;
+        String superposicion = "";
 
         for (int i = 0; i < str1.length(); i++) {
             int longitudActual = Math.min(str1.length() - i, str2.length());
@@ -49,21 +33,20 @@ public class EnsamblajeFragmentos {
             String subcadena2 = str2.substring(0, longitudActual);
 
             if (subcadena1.equals(subcadena2)) {
-                return subcadena1;
-//                if (longitudActual > longitudMaxima) {
-//                    longitudMaxima = longitudActual;
-//                    superposicion = subcadena1;
-//                }
+                if (longitudActual > longitudMaxima) {
+                    longitudMaxima = longitudActual;
+                    superposicion = subcadena1;
+                }
             }
         }
-
-//        return superposicion;
-        return "";
+        return superposicion;
     }
+
 
     private int obtenerPosicionInicial(String fragmento) {
         int inicio = fragmento.indexOf("Inicio:");
         int fin = fragmento.indexOf("Fin:");
+
         if (inicio == -1 || fin == -1) {
             return -1;
         }
@@ -73,4 +56,5 @@ public class EnsamblajeFragmentos {
         String posicionInicialStr = fragmento.substring(inicio + 7, fin);
         return Integer.parseInt(posicionInicialStr);
     }
+
 }

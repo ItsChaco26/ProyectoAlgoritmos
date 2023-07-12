@@ -18,12 +18,7 @@ public class Main {
         int cantidadFragmentos = 55;
         int longitudPromedio = 10;
 
-         //  gF.generarFragmentos(textoOriginal, cantidadFragmentos, longitudPromedio);
-          System.out.println(eF.reconstruirTexto(gA.leerArchivoDANI("fragmentos.txt")));
-
-
-
-
+        gF.generarFragmentos(textoOriginal, cantidadFragmentos, longitudPromedio);;
+        System.out.println(eF.reconstruirTexto(gA.leerArchivoDANI("fragmentos.txt")));
     }
-
 }
