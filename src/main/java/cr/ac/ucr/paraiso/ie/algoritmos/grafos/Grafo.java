@@ -51,7 +51,6 @@ public class Grafo {
         Nodo aux = head;
         textoReconstruido.append(aux.getFragmento());
         while (!aux.getVecinos().isEmpty()) {
-//        System.out.println(aux.getFragmento());
             int maxPeso = 0;
             int indexMax = 0;
             for (int i = 0; i < aux.getPesos().size(); i++) {
@@ -67,18 +66,5 @@ public class Grafo {
         return textoReconstruido.toString();
     }
 
-
-//    public Nodo obtenerNodoPorDatos(String fragmento) { //obtener un fragmento en Especifico
-//        for (Nodo nodo : nodos) {
-//            if (nodo.getFragmento().equals(fragmento)) {
-//                return nodo;
-//            }
-//        }
-//        return null;
-//    }
-
-//    public List<Nodo> getNodos() {
-//        return nodos;
-//    }
 }
 
