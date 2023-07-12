@@ -18,7 +18,7 @@ public class Menu {
         Scanner sn = new Scanner(System.in);
         int opcion = 0;
 
-        while (opcion != 5) {
+        while (opcion != 8) {
             StringBuilder sb = new StringBuilder("Menu Principal"); //StringBuilder donde se almacena el contenido del Menú Principal
             sb.append("\nSeleccione una opción válida: \n")
                     .append("1): ").append("Generar fragmentos\n")
@@ -28,7 +28,8 @@ public class Menu {
                     .append("5): ").append("Buscar palabras claves en los fragmentos\n")
                     .append("6): ").append("Reconstruir fragmentos\n")
                     .append("7): ").append("Comparar el contenido del texto original y el texto reconstruido\n")
-                    .append("8): ").append("Salir\n");
+
+                    .append("8): ").append("Salir");
             System.out.println(sb);
             try {
                 opcion = sn.nextInt(); //Se asigna un dato tipo int a la variable opción para proceder a eveluarla en el switch y ejecutar un método o acciones especificas
@@ -50,16 +51,21 @@ public class Menu {
 
                         break;
                     case 2:
+
                         System.out.println(ordenamientos.ordenarAlfabeticamente());
                         break;
                     case 3:
                         System.out.println(ordenamientos.ordenarPorLongitud());
                         break;
                     case 4:
-                        System.out.println("En proceso...");
+                        System.out.println("Digite el valor con el que desea filtrar el archivo");
+                        int valor = sn.nextInt();
+                        System.out.println(ordenamientos.valoresMenoresOMayores(valor));
                         break;
                     case 5:
-                        System.out.println("En proceso...");
+                        System.out.println("Digite el texto con el que desea filtrar el archivo");
+                        String texto = sn.next();
+                        System.out.println(ordenamientos.buscarPalabrasClave(texto));
                         break;
                     case 6:
                         System.out.println(eF.reconstruirTexto(gA.leerArchivoDANI("fragmentos.txt")));
@@ -79,6 +85,7 @@ public class Menu {
                 sn.nextLine();
             }
 
-    }
+        }
 
-}}
+    }
+}
