@@ -43,8 +43,8 @@ public class Ordenamientos {
         }
     }
 
-    public String buscarPalabrasClave(String filePath, String keyword) throws IOException {
-        List<String> fragmentos = gA.leerArchivoDANI(filePath);
+    public String buscarPalabrasClave(String keyword) throws IOException {
+        List<String> fragmentos = gA.leerArchivoDANI("fragmentos.txt");
         if (fragmentos.isEmpty()) {
             return "No hay fragmentos disponibles.";
         } else {
@@ -58,10 +58,10 @@ public class Ordenamientos {
         }
     }
 
-    public String valoresMenoresOMayores(String filePath, int valorAComparar) {
+    public String valoresMenoresOMayores(int valorAComparar) {
         StringBuilder valoresMayores = new StringBuilder();
         StringBuilder valoresMenores = new StringBuilder();
-        List<String> fragmentos = gA.leerArchivoDANI(filePath);
+        List<String> fragmentos = gA.leerArchivoDANI("fragmentos.txt");
 
         if (fragmentos.isEmpty()) {
             return "No hay fragmentos disponibles.";
@@ -75,6 +75,7 @@ public class Ordenamientos {
             }
             return "Líneas mayores al valor " + valorAComparar + ":\n" +
                     valoresMayores.toString() + "\n" +
+                    "================================\n" +
                     "Líneas menores o iguales al valor " + valorAComparar + ":\n" +
                     valoresMenores.toString();
         }
