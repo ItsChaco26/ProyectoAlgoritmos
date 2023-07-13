@@ -4,6 +4,7 @@ import cr.ac.ucr.paraiso.ie.algoritmos.fragmentos.EnsamblajeFragmentos;
 import cr.ac.ucr.paraiso.ie.algoritmos.fragmentos.GeneraFragmentos;
 import cr.ac.ucr.paraiso.ie.algoritmos.fragmentos.Ordenamientos;
 
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -26,7 +27,8 @@ public class Menu {
                     .append("4): ").append("Ordenar fragmentos mayores o menores a un valor dado\n")
                     .append("5): ").append("Buscar palabras claves en los fragmentos\n")
                     .append("6): ").append("Reconstruir fragmentos\n")
-                    .append("7): ").append("Salir\n");
+                    .append("7): ").append("Comparar el contenido del texto original y el texto reconstruido\n")
+                    .append("8): ").append("Salir\n");
             System.out.println(sb);
             try {
                 opcion = sn.nextInt(); //Se asigna un dato tipo int a la variable opción para proceder a eveluarla en el switch y ejecutar un método o acciones especificas
@@ -63,6 +65,9 @@ public class Menu {
                         System.out.println(eF.reconstruirTexto(gA.leerArchivoDANI("fragmentos.txt")));
                         break;
                     case 7:
+                        List<String> archivoOriginal = gA.leerArchivoDANI("fragmentos.txt");
+                        System.out.println("Archivo Original: \n"+ archivoOriginal.toString()+ "\n Archivo Fragmentos Reconstruido: \n"  + eF.reconstruirTexto(gA.leerArchivoDANI("fragmentos.txt")));
+                    case 8:
                         System.exit(0); //Se termina la ejecución del programa.
                         break;
                     default:
