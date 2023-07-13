@@ -1,74 +1,60 @@
 Cuando el
-o el usuario
-el usuario
-suario lo solicite,
-olicite, su
- su programa deberá
-grama deberá
-a deberá
-rá listar
-ar los fragmentos
+ndo el usuario
+ usuario
+o lo solicite,
+licite,
+cite, su
+u programa deberá
+ama deberá
+berá listar
+listar
+r los fragmentos
 mentos cargados
-os donde
-donde debe
-e debe ser posible
+ cargados
+ados donde
+nde debe ser
+be ser posible
  posible para
-ible para el
-a el usuario
-uario ordenarlos
-enarlos
+ble para
+ra el usuario
+rio ordenarlos
 s y filtrarlos
-los de múltiples
-iples formas:
-as: orden alfabético,
+rarlos de múltiples
+ múltiples
+les formas:
+mas: orden
+orden alfabético,
+abético,
 ico, largo
- largo de hilera,
-de hilera,
-lera, ordenar
- ordenar
-ordenar fragmentos
-gmentos mayores
-mayores o menores
-res a un
-un valor dado,
-, buscar palabras
-s claves, etc.
-etc.
-
-ves, etc.
-.
-
-, etc.
-
-.
-
-, etc.
-
+ largo de
+e hilera,
+, ordenar fragmentos
+entos mayores
+ayores o menores
+res a un valor
+ un valor
+ valor dado,
+ado, buscar
+uscar palabras
+ palabras
+ras claves,
 es, etc.
 
-etc.
-
-s, etc.
-
-etc.
+ves, etc.
 
 c.
 
-s, etc.
-
-etc.
-
-tc.
-
-etc.
-
-laves, etc.
+, etc.
 
 .
 
+, etc.
+
+
+
  etc.
 
-s, etc.
+.
 
-s, etc.
+.
 
