@@ -5,11 +5,11 @@ import static cr.ac.ucr.paraiso.ie.algoritmos.utility.GestionaArchivo.escribirEn
 public class GeneraFragmentos {
 
     public void generarFragmentos(String texto, int cantidadFragmentos, int longitudPromedioFragmento) {
+        Random random = new Random();
         int longitudTexto = texto.length();
         int contador = 0;
         int posicionActual = 0;
 
-        Random random = new Random();
 
         while (contador < cantidadFragmentos && posicionActual < longitudTexto) {
             int longitudFragmento = calcularLongitudFragmento(longitudPromedioFragmento, random);
@@ -24,11 +24,10 @@ public class GeneraFragmentos {
                 while (fin < longitudTexto && !Character.isWhitespace(texto.charAt(fin))) {
                     fin++;
                 }
-}
+            }
 
             String fragmento = texto.substring(inicio, fin);
             escribirEnArchivo(fragmento);
-
 
             contador++;
             posicionActual = fin - traslape;
