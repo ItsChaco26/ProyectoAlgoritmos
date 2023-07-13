@@ -22,8 +22,6 @@ public class Main {
           System.out.println(eF.reconstruirTexto(gA.leerArchivoDANI("fragmentos.txt")));
 
 
-
-
     }
 
 }

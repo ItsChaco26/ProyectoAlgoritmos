@@ -4,8 +4,12 @@ import cr.ac.ucr.paraiso.ie.algoritmos.fragmentos.GeneraFragmentos;
 
 import java.util.Scanner;
 
+
+
+
 public class Menu {
     public void menu(){
+
         GeneraFragmentos gF = new GeneraFragmentos();
         GestionaArchivo gA = new GestionaArchivo();
         Scanner sn = new Scanner(System.in);
