@@ -6,7 +6,7 @@ import cr.ac.ucr.paraiso.ie.algoritmos.grafos.Grafo;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-public class EmsamblajeFragmentos {
+public class EnsamblajeFragmentos {
     public String reconstruirTexto(List<String> fragmentos) {
 //        StringBuilder textoReconstruido = new StringBuilder();
         Grafo grafo = new Grafo();
