@@ -9,8 +9,13 @@ import java.util.List;
 public class Ordenamientos {
     GestionaArchivo gA = new GestionaArchivo();
 
-  //  List<String> fragmentos = gA.leerArchivoDANI("fragmentos.txt");
-  public String ordenarPorLongitud(List<String> fragmentos) {
+    List<String> fragmentos = gA.leerArchivoDANI("fragmentos.txt");
+
+  public String ordenarPorLongitud() {
+
+      if(fragmentos.isEmpty()){
+          return "No hay fragmentos disponibles.";
+      }
 
       Collections.sort(fragmentos, Comparator.comparingInt(String::length));
 
@@ -25,7 +30,11 @@ public class Ordenamientos {
   }
 
 
-    public String ordenarAlfabeticamente(List<String> fragmentos) {
+    public String ordenarAlfabeticamente() {
+
+        if(fragmentos.isEmpty()){
+            return "No hay fragmentos disponibles.";
+        }
 
         Collections.sort(fragmentos);
 
